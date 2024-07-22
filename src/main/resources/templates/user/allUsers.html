@@ -5,44 +5,45 @@
     <meta charset="UTF-8">
     <title>Все пользователи</title>
 </head>
-<body>
-<h2>Users</h2>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Suname</th>
-        <th>Email</th>
-        <th>Age</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr var="user" items="${users}">
+    <body>
+        <h2>Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Suname</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr var="user" items="${users}">
 
-    <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.surname}"></td>
-        <td th:text="${user.email}"></td>
-        <td th:text="${user.age}"></td>
-        <td>
-            <form th:action="@{/user/edit}">
-                <button type="submit" th:name="id" th:value="${user.id}">Edit</button>
-            </form>
-        </td>
-        <td>
-            <form method="post" th:action="@{/user/delete}">
-                <button type="submit" th:name="id" th:value="${user.id}">Delete</button>
-            </form>
-        </td>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.surname}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td>
+                        <form th:action="@{/user/edit}">
+                            <button type="submit" th:name="id" th:value="${user.id}">Edit</button>
+                        </form>
+                   </td>
+                   <td>
+                       <form method="post" th:action="@{/user/delete}">
+                           <button type="submit" th:name="id" th:value="${user.id}">Delete</button>
+                       </form>
+                   </td>
 
-    </tr>
-    </tbody>
-</table>
+                </tr>
+             </tbody>
 
-<br>
+        </table>
 
-<a href="/user/new" class="btn btn-primary">Create new user</a>
-</body>
+     <br>
+
+       <a href="/user/new" class="btn btn-primary">Create new user</a>
+    </body>
 </html>

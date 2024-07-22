@@ -44,7 +44,6 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user/creatUser";
         }
-
         userService.saveUser(user);
         return "redirect:/user";
     }
@@ -52,7 +51,6 @@ public class UserController {
     @GetMapping("/edit")
     public String editUserForm(@RequestParam("id") Long id, Model model) {
         Optional<User> userById = userService.findByUserId(id);
-
         if (userById.isPresent()) {
             model.addAttribute("user", userById.get());
             return "user/editUser";
@@ -67,7 +65,6 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user/editUser";
         }
-
         userService.updateUser(user);
         return "redirect:/user";
     }
@@ -77,5 +74,4 @@ public class UserController {
         userService.deleteByUser(id);
         return "redirect:/user";
     }
-
 }
